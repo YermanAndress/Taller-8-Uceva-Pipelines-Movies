@@ -1,0 +1,28 @@
+<div class="container">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <div class="d-flex align-items-center me-md-auto text-dark text-decoration-none">
+      <h3 class="d-flex align-items-center gap-2 mb-0">
+        <app-icon icon="collection"></app-icon>
+        Catálogo Multimedia
+      </h3>
+    </div>
+
+    <ul class="nav nav-pills">
+      @for (navbarItem of navbarItems; track navbarItem.url) {
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex align-items-center gap-2"
+            routerLinkActive="active"
+            [routerLink]="navbarItem.url"
+          >
+            @if (navbarItem.icon) {
+              <app-icon [icon]="navbarItem.icon"></app-icon>
+            }
+            {{ navbarItem.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </header>
+</div>
+<div class="divider-spacing"></div>

@@ -1,0 +1,19 @@
+import { TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { SharedModule } from './modules/shared/shared-module';
+
+describe('App', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [RouterModule.forRoot([]), SharedModule],
+      declarations: [AppComponent],
+    }).compileComponents();
+  });
+
+  it('deberia crear la app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+});
