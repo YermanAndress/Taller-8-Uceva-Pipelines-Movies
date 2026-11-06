@@ -1,59 +1,56 @@
-# UcevaPipelinesMovies
+# UCEVA Pipelines - Catálogo Multimedia
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.6.
+Aplicación Angular desarrollada para el laboratorio de **Pipelines** de la asignatura
+Arquitectura de Software. Este proyecto implementa **Hash Location Strategy**, por lo
+que todas las rutas de navegación incluyen el carácter `#`.
 
-## Development server
+## Vistas
 
-To start a local development server, run:
+| Vista          | Ruta                                   | Contenido                                      |
+| -------------- | -------------------------------------- | ---------------------------------------------- |
+| Cine Ghibli    | `/#/movielist/list-movielist`          | Películas de Studio Ghibli (Ghibli API)        |
+| Pokémon        | `/#/pokelist/list-pokelist`            | Pokémones obtenidos desde PokéAPI              |
+| Libros         | `/#/libros/list-libros`                | Catálogo de libros de ejemplo                  |
 
-```bash
-ng serve
-```
+Cada sección está implementada como un módulo con carga diferida (_lazy loading_) y
+se navega desde el menú superior. La ruta raíz redirige automáticamente a
+`#/movielist/list-movielist`.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologías
 
-## Code scaffolding
+- Angular 20 con NgModule
+- TypeScript
+- Bootstrap 5 y Bootstrap Icons (CDN)
+- Jest para pruebas unitarias
+- GitHub Actions para CI/CD
+- GitHub Pages para el despliegue
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Comandos
 
 ```bash
-ng build
+# Instalar dependencias
+npm install
+
+# Servidor de desarrollo
+npm start
+
+# Pruebas unitarias
+npm test
+
+# Build de producción
+npm run build -- --base-href /Taller-8-Uceva-Pipelines-Movies/
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Despliegue
 
-## Running unit tests
+El pipeline está definido en `.github/workflows/deploy-github-pages.yml`. En cada
+_push_ a la rama `main` se ejecutan las pruebas, se genera el build de producción y
+se publica automáticamente en GitHub Pages.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+- Repositorio: <https://github.com/YermanAndress/Taller-8-Uceva-Pipelines-Movies>
+- Aplicación desplegada: <https://yermanandress.github.io/Taller-8-Uceva-Pipelines-Movies/>
 
-```bash
-ng test
-```
+## Convención de commits
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+El proyecto utiliza **Conventional Commits** (`feat`, `fix`, `docs`, `refactor`,
+`chore`, `ci`, entre otros).
